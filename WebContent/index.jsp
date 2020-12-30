@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>JSP</title>
 </head>
 <body>
-	<!-- ë‚´ë¹„ê²Œì´ì…˜ ë°” -->
+	<!-- ³»ºñ°ÔÀÌ¼Ç ¹Ù -->
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -24,35 +24,28 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.jsp">ë©”ì¸</a></li>
-				<li><a href="bbs.jsp">ê²Œì‹œíŒ</a></li>
+				<li class="active"><a href="index.jsp">¸ÞÀÎ</a></li>
+				<li><a href="bbs.jsp">°Ô½ÃÆÇ</a></li>
 			</ul>
-			<!-- ë¡œê·¸ì¸ ì „ í™”ë©´ -->
+			<!-- ·Î±×ÀÎ Àü È­¸é -->
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="login.jsp">·Î±×ÀÎ</a></li>
+				<li><a href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
+			</ul>
+			<!--  ·Î±×ÀÎ ÈÄ È­¸é -->
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+						aria-expanded="false">È¸¿ø°ü¸®<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">ë¡œê·¸ì¸</a></li>
-						<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
-					</ul>
-				</li>
-			</ul>
-			<!--  ë¡œê·¸ì¸ í›„ í™”ë©´ -->
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+						<li><a href="logoutAction.jsp">·Î±×¾Æ¿ô</a></li>
 					</ul>
 				</li>
 			</ul>	
 		</div>
 	</nav>
-	<!-- ë©”ì¸ ì´ë¯¸ì§€ ìŠ¤í¬ë¡¤ ë°” -->
+	<!-- ¸ÞÀÎ ÀÌ¹ÌÁö ½ºÅ©·Ñ ¹Ù -->
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">

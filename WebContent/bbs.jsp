@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
@@ -16,7 +16,7 @@
 </style>
 </head>
 <body>
-	<!-- ë‚´ë¹„ê²Œì´ì…˜ ë°” -->
+	<!-- ³»ºñ°ÔÀÌ¼Ç ¹Ù -->
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -30,29 +30,29 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="index.jsp">ë©”ì¸</a></li>
-				<li class="active"><a href="bbs.jsp">ê²Œì‹œíŒ</a></li>
+				<li><a href="index.jsp">¸ÞÀÎ</a></li>
+				<li class="active"><a href="bbs.jsp">°Ô½ÃÆÇ</a></li>
 			</ul>
-			<!-- ë¡œê·¸ì¸ ì „ í™”ë©´ -->
+			<!-- ·Î±×ÀÎ Àü È­¸é -->
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">ì ‘ì†í•˜ê¸°<span class="caret"></span></a>
+						aria-expanded="false">Á¢¼ÓÇÏ±â<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">ë¡œê·¸ì¸</a></li>
-						<li><a href="join.jsp">íšŒì›ê°€ìž…</a></li>
+						<li><a href="login.jsp">·Î±×ÀÎ</a></li>
+						<li><a href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
 					</ul>
 				</li>
 			</ul>
-			<!--  ë¡œê·¸ì¸ í›„ í™”ë©´ -->
+			<!--  ·Î±×ÀÎ ÈÄ È­¸é -->
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">íšŒì›ê´€ë¦¬<span class="caret"></span></a>
+						aria-expanded="false">È¸¿ø°ü¸®<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">ë¡œê·¸ì•„ì›ƒ</a></li>
+						<li><a href="logoutAction.jsp">·Î±×¾Æ¿ô</a></li>
 					</ul>
 				</li>
 			</ul>		
@@ -63,20 +63,20 @@
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th style="background-color: #eeeeee; text-align: center;">ë²ˆí˜¸</th>
-						<th style="background-color: #eeeeee; text-align: center;">ì œëª©</th>
-						<th style="background-color: #eeeeee; text-align: center;">ìž‘ì„±ìž</th>
-						<th style="background-color: #eeeeee; text-align: center;">ìž‘ì„±ì¼</th>
+						<th style="background-color: #eeeeee; text-align: center;">¹øÈ£</th>
+						<th style="background-color: #eeeeee; text-align: center;">Á¦¸ñ</th>
+						<th style="background-color: #eeeeee; text-align: center;">ÀÛ¼ºÀÚ</th>
+						<th style="background-color: #eeeeee; text-align: center;">ÀÛ¼ºÀÏ</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- ê²Œì‹œíŒ ê¸€ ëª©ë¡ -->
+					<!-- °Ô½ÃÆÇ ±Û ¸ñ·Ï -->
 				</tbody>
 			</table>
-			<!-- ê²Œì‹œíŒ íŽ˜ì´ì§€ ì´ë™ ë²„íŠ¼ -->
-			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">ì´ì „</a>
-			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">ë‹¤ìŒ</a>
-			<a href="write.jsp" class="btn btn-primary pull-right">ê¸€ì“°ê¸°</a>
+			<!-- °Ô½ÃÆÇ ÆäÀÌÁö ÀÌµ¿ ¹öÆ° -->
+			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">ÀÌÀü</a>
+			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">´ÙÀ½</a>
+			<a href="write.jsp" class="btn btn-primary pull-right">±Û¾²±â</a>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
