@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>JSP</title>
+<%
+  String name = (String)session.getAttribute("name");
+%>
 </head>
 <body>
 	<!-- 내비게이션 바 -->
@@ -28,11 +31,13 @@
 				<li><a href="bbs.jsp">게시판</a></li>
 			</ul>
 			<!-- 로그인 전 화면 -->
+			<%if(name == null){ %>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login.jsp">로그인</a></li>
 				<li><a href="join.jsp">회원가입</a></li>
 			</ul>
 			<!--  로그인 후 화면 -->
+			<%}else{ %>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
@@ -42,7 +47,8 @@
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 					</ul>
 				</li>
-			</ul>	
+			</ul>
+			<%} %>	
 		</div>
 	</nav>
 	<!-- 메인 이미지 스크롤 바 -->

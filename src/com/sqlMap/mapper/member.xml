@@ -10,15 +10,11 @@
 		insert into MEMBER (id, pw, name, sex, email) values(#{id},#{pw},#{name},#{sex},#{email})
 	</insert>
 	
-	<!-- <select id="getContents" resultType="hashmap">
-		SELECT
-		id, name
-		FROM
-		member
-		WHERE
-		id = '1'
+	<select id="getLogin" resultType="String">
+	   select name from MEMBER where id = #{id} and pw = #{pw}
 	</select>
-
+	
+    <!-- 
 	<select id="getList" resultType="hashmap">
 		SELECT
 		id, name, age

@@ -16,4 +16,8 @@ public class MemberDAO {
 		sqlSession.commit();
 		return cnt;
 	}
+	
+	public String login(HashMap pHm) {
+		return sqlSession.selectOne("Member.getLogin", pHm);
+	}
 }
