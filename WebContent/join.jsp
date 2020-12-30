@@ -48,10 +48,10 @@
 					<div class="form-group" style="text-align: center;">
 						<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-primary">
-								<input type="radio" name="sex" autocomplete="off" value="1" checked>害切
+								<input type="radio" name="sex" autocomplete="off" value="1">害切
 							</label>
 							<label class="btn btn-primary">
-								<input type="radio" name="sex" autocomplete="off" value="2" checked>食切
+								<input type="radio" name="sex" autocomplete="off" value="2">食切
 							</label>
 						</div>
 					</div>
