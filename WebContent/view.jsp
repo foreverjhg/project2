@@ -66,6 +66,7 @@
 			<a href="update.jsp?bbsID=" class="btn btn-primary">수정</a>
 			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=" class="btn btn-primary">삭제</a>
 			<hr style="border: 1px solid grey;">
+			<!-- 댓글 내용 표시 -->
 			
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd; margin-top: 20px">
 			  <tbody>
