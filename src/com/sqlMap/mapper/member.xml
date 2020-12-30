@@ -7,11 +7,11 @@
 <mapper namespace="Member">
 
 	<insert id="getJoin">
-		insert into MEMBER (id, pw, name, sex, email) values(#{id},#{pw},#{name},#{sex},#{email})
+		insert into p_member (id, pw, name, sex, email) values(#{id},#{pw},#{name},#{sex},#{email})
 	</insert>
 	
 	<select id="getLogin" resultType="String">
-	   select name from MEMBER where id = #{id} and pw = #{pw}
+	   select name from p_member where id = #{id} and pw = #{pw}
 	</select>
 	
     <!-- 

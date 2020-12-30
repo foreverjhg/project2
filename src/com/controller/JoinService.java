@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -37,11 +38,12 @@ public class JoinService extends HttpServlet {
 		pHm.put("email", email);
 
 		int cnt = dao.join(pHm);
-		 
+
 		if (cnt > 0) { 
 			response.sendRedirect("login.jsp"); 
 		} else {
 		    response.sendRedirect("index.jsp"); 
 		}
+
 	}
 }
