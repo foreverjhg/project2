@@ -34,7 +34,7 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="JoinService">
+				<form method="post" action="JoinService" name="jform">
 					<h3 style="text-align: center;">회원가입 화면</h3>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="아이디" name="id" maxlength="20">
@@ -58,7 +58,7 @@
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="이메일" name="email" maxlength="20">
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="회원가입">
+					<input type="button" class="btn btn-primary form-control" value="회원가입" onclick="checkfield()">
 				</form>
 			</div>
 		</div>
@@ -66,5 +66,34 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function checkfield(){
+			var form = document.jform;
+			
+			if(form.id.value == ""){
+				 alert("아이디를 입력하세요"); 
+				 form.id.focus(); 
+				 exit;
+			}else if(form.pw.value == ""){
+				 alert("비밀번호를 입력하세요"); 
+				 form.pw.focus(); 
+				 exit;
+			}else if(form.name.value == ""){
+				 alert("이름을 입력하세요"); 
+				 form.name.focus(); 
+				 exit;
+			}else if(form.sex.value == ""){
+				 alert("성별을 선택하세요"); 
+				 form.sex.focus(); 
+				 exit;
+			}else if(form.email.value == ""){
+				 alert("이메일을 입력하세요"); 
+				 form.email.focus(); 
+				 exit;
+			}
+			
+			form.submit();
+		}
+	</script>
 </body>
 </html>
