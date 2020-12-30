@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>JSP</title>
+<%
+  String name = (String)session.getAttribute("name");
+%>
 </head>
 <body>
 	<!-- 내비게이션 바 -->
@@ -27,18 +30,7 @@
 				<li><a href="index.jsp">메인</a></li>
 				<li class="active"><a href="bbs.jsp">게시판</a></li>
 			</ul>
-			<!-- 로그인 전 화면 -->
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul>
-				</li>
-			</ul>
+			<%if(name != null){ %>
 			<!--  로그인 후 화면 -->
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -49,7 +41,8 @@
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 					</ul>
 				</li>
-			</ul>	
+			</ul>
+			<%} %>
 		</div>
 	</nav>
 	<div class="container">
@@ -70,6 +63,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="hidden" name="name" value="<%=name %>">
 				<input type="submit" class="btn btn-primary pull-right" value="글수정">
 			</form>
 		</div>
