@@ -13,31 +13,4 @@
 	<select id="getLogin" resultType="String">
 	   select name from p_member where id = #{id} and pw = #{pw}
 	</select>
-	
-	
-    <!-- 
-	<select id="getList" resultType="hashmap">
-		SELECT
-		id, name, age
-		FROM
-		member
-	</select>
-
-	<select id="getCountP" parameterType="hashmap" resultType="int">
-		SELECT
-		count(*)
-		FROM
-		member
-		WHERE
-		name = #{name}
-	</select>
-
-	<select id="getContentsP" parameterType="hashmap" resultType="hashmap">
-		SELECT
-		id, name
-		FROM
-		member
-		WHERE
-		name = #{name}
-	</select> -->
 </mapper>
