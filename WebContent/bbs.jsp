@@ -52,7 +52,8 @@
 						<li><a href="LogoutService">·Î±×¾Æ¿ô</a></li>
 					</ul>
 				</li>
-			</ul>		
+			</ul>	
+			<%} %>	
 		</div>
 	</nav>
 	<div class="container">
