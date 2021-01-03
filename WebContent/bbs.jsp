@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -19,6 +21,10 @@
 %>
 </head>
 <body>
+	
+	<%  List<Map<String, String>> boardlist =  (List<Map<String, String>>) session.getAttribute("boardlist"); %>
+	
+	
 	<!-- 내비게이션 바 -->
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -46,8 +52,7 @@
 						<li><a href="LogoutService">로그아웃</a></li>
 					</ul>
 				</li>
-			</ul>	
-			<%} %>	
+			</ul>		
 		</div>
 	</nav>
 	<div class="container">
@@ -60,9 +65,23 @@
 						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 					</tr>
+					
+					
+					
 				</thead>
 				<tbody>
 					<!-- 게시판 글 목록 -->
+					<% for (int i=0; i<boardlist.size(); i++) { %>
+					
+					<tr>
+						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %></th>
+						<th style="background-color: #eeeeee; text-align: center;"><%=boardlist.get(i).get("TITLE") %></th>
+						<th style="background-color: #eeeeee; text-align: center;"><%=boardlist.get(i).get("WRITEUSER") %></th>
+						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("WRITEDATE")) %></th>
+					</tr>
+					
+					
+					<%} %>
 				</tbody>
 			</table>
 			<!-- 게시판 페이지 이동 버튼 -->

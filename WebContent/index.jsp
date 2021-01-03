@@ -28,7 +28,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.jsp">메인</a></li>
-				<li><a href="bbs.jsp">게시판</a></li>
+				<li><a href="bbsService">게시판</a></li>
 			</ul>
 			<!-- 로그인 전 화면 -->
 			<%if(name == null){ %>
