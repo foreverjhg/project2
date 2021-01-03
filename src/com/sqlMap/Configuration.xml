@@ -24,6 +24,7 @@
 
     <mappers>
         <mapper resource="com/sqlMap/mapper/member.xml" />
+        <mapper resource="com/sqlMap/mapper/board.xml" />
     </mappers>
 
 </configuration>
