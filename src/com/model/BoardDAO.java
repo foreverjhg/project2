@@ -15,23 +15,13 @@ public class BoardDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	public int boardwrite(HashMap pHm) {
-		
-		
-		
 		int cnt = sqlSession.insert("Board.getBoardWrite", pHm);
-		
-		
 		sqlSession.commit();
-		return cnt;
-		
+		return cnt;		
 	}
 	
 	public List<Map<String, String>> boardlist() {
-		
-		 List<Map<String, String>> boardlist = sqlSession.selectList("Board.boardlist");
-		 sqlSession.commit();
-		 return boardlist;
-		
+		 return sqlSession.selectList("Board.boardlist");		
 	}
 	
 	
