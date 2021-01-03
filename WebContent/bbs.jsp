@@ -87,7 +87,9 @@
 			<!-- 게시판 페이지 이동 버튼 -->
 			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">이전</a>
 			<a href="bbs.jsp?pageNumber=" class="btn btn-success btn-arraw-left">다음</a>
-			<%if(name != null){ %><a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a><%} %>
+			<%if(name != null){ %>
+			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<%} %>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
