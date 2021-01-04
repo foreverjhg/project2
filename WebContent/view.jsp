@@ -68,8 +68,8 @@
 				</tbody>
 			</table>
 			<a href="bbs.jsp" class="btn btn-primary">목록</a>
-			<a href="update.jsp?bbsID=" class="btn btn-primary">수정</a>
-			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=" class="btn btn-primary">삭제</a>
+			<a href="updatecon.jsp?bbsID=<%=String.valueOf(list.get(0).get("BOARD_NUM")) %>&flag=U" class="btn btn-primary">수정</a>
+			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="updatecon.jsp?bbsID=<%=String.valueOf(list.get(0).get("BOARD_NUM")) %>&flag=D"class="btn btn-primary">삭제</a>
 			<hr style="border: 1px solid grey;">
 			<!-- 댓글 내용 표시 -->
 			<%if (ripplelist != null) {%>

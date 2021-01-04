@@ -40,6 +40,24 @@ public class BoardDAO {
 		
 	}
 
+	public String passwordcheck(HashMap pHm) {
+		return sqlSession.selectOne("Board.passwordcheck", pHm);
+	}
+
+	public int update(HashMap pHm) {
+		int cnt = sqlSession.update("Board.update", pHm);
+		sqlSession.commit();
+		return cnt;
+		
+	}
+
+	public int delete(String board_num) {
+		int cnt = sqlSession.delete("Board.delete", board_num);
+		sqlSession.commit();
+		return cnt;
+		
+	}
+
 	
 	
 	

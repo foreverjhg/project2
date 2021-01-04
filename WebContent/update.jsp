@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -10,6 +12,7 @@
 <title>JSP</title>
 <%
   String name = (String)session.getAttribute("name");
+  List<Map<String, String>> updatecontent = (List<Map<String, String>>) session.getAttribute("updatecontent");
 %>
 </head>
 <body>
@@ -47,7 +50,7 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form method="post" action="updateAction.jsp?bbsID=">
+			<form method="post" action="updateAction?board_num=<%=String.valueOf(updatecontent.get(0).get("BOARD_NUM")) %>">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
@@ -56,14 +59,15 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" value=""></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50" value=""></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>
 				<input type="hidden" name="name" value="<%=name %>">
+			
 				<input type="submit" class="btn btn-primary pull-right" value="글수정">
 			</form>
 		</div>

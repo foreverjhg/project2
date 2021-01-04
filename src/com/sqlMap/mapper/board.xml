@@ -31,6 +31,19 @@
 		select board_num, ripple_num, title, writeuser, writedate, content from P_BOARD where board_num = #{board_num} and ripple_num != 0
 	</select>
 	
+	<select id="passwordcheck" resultType="String">
+		select name from P_MEMBER where pw = #{pw} 
+	</select>
+	
+	<update id="update" >
+		update p_board set title = #{title}, content = #{content} where board_num = #{board_num} and ripple_num = 0 
+	
+	</update>
+	
+	<delete id="delete">
+		delete from p_board where board_num = #{board_num}
+	
+	</delete>
 	
 	
 </mapper>
