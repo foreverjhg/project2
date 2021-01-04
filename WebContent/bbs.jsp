@@ -64,7 +64,7 @@
 						<th style="background-color: #eeeeee; text-align: center;">번호</th>
 						<th style="background-color: #eeeeee; text-align: center;">제목</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+						<th style="background-color: #eeeeee; text-align: center;">작성일시</th>
 					</tr>
 					
 					
@@ -73,15 +73,12 @@
 				<tbody>
 					<!-- 게시판 글 목록 -->
 					<% for (int i=0; i<boardlist.size(); i++) { %>
-					
 					<tr>
-						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %></th>
-						<th style="background-color: #eeeeee; text-align: center;"><a href = 'viewService?num=<%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %>'><%=boardlist.get(i).get("TITLE") %></a></th>
-						<th style="background-color: #eeeeee; text-align: center;"><%=boardlist.get(i).get("WRITEUSER") %></th>
-						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("WRITEDATE")) %></th>
-					</tr>
-					
-					
+						<td><%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %></td>
+						<td><a href = 'viewService?num=<%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %>'><%=boardlist.get(i).get("TITLE") %></a></td>
+						<td><%=boardlist.get(i).get("WRITEUSER") %></td>
+						<td><%=String.valueOf(boardlist.get(i).get("WRITEDATE")) %></td>
+					</tr>					
 					<%} %>
 				</tbody>
 			</table>
