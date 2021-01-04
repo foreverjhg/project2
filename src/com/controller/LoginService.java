@@ -28,7 +28,7 @@ public class LoginService extends HttpServlet {
 		
 		HashMap pHm = new HashMap();
 		pHm.put("id", id);
-		pHm.put("pw", pw);
+		pHm.put("pw", pw.toLowerCase());
 		
 		String name = dao.login(pHm);
 		
