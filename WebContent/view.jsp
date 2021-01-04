@@ -55,10 +55,10 @@
 				</thead>
 				<tbody>
 	             <tr>
-					<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
+					<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" disabled="disabled"></td>
 				 </tr>
 				 <tr>
-					<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+					<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;" disabled="disabled"></textarea></td>
 				 </tr>
 				</tbody>
 			</table>
@@ -67,6 +67,56 @@
 			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=" class="btn btn-primary">삭제</a>
 			<hr style="border: 1px solid grey;">
 			<!-- 댓글 내용 표시 -->
+			<table class="table table-striped" style="border: 1px solid #dddddd;">
+			  <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			  <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			  <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			   <tr>
+			    <td style="text-align: center;" >개구리</td>
+			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			  </tr>
+			</table>
 			
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd; margin-top: 20px">
 			  <tbody>
