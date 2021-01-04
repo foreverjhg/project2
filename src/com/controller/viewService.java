@@ -32,13 +32,10 @@ public class viewService extends HttpServlet {
 		BoardDAO dao = new BoardDAO();
 
 		List<Map<String, String>> list = dao.boardcontent(board_num);
-		
-		System.out.println(list.get(0).get("CONTENT"));
-
+		List<Map<String, String>> ripplelist = dao.ripplelist(board_num);
 		
 		if (list != null) {
-			session.removeAttribute("ripplelist");
-			session.removeAttribute("boardcontent");
+			session.setAttribute("ripplelist", ripplelist);
 			session.setAttribute("boardcontent", list);
 			response.sendRedirect("view.jsp");
 		} else {

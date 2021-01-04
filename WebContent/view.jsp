@@ -83,7 +83,7 @@
 			</table>
 			<%} %>
 			
-			<form  action="rippleService" method="post" name="form">
+			<form  action="ripplewrite" method="post" name="form">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd; margin-top: 20px">
 			  <tbody>
 				 <tr>
