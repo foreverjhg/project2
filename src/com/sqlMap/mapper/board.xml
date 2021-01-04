@@ -6,29 +6,29 @@
 <!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
 <mapper namespace="Board">
     <select id="boardlist" resultType="HashMap">
-		select * from P_BOARD where ripple_num = 0
+		select board_num, ripple_num, title, writeuser, writedate, content from P_BOARD where ripple_num = 0 order by board_num desc
 	</select>
 	
 	<insert id="getBoardWrite">
 		<selectKey keyProperty="numseq" resultType="int" order="BEFORE">
 			 select board_num.nextval as numseq from DUAL
 		</selectKey>
-		insert into P_BOARD (board_num, ripple_num, title ,writeuser, writedate, content) values(#{numseq}, 0, #{title}, #{writeuser}, sysdate, #{content})	
+		insert into P_BOARD (board_num, ripple_num, title, writeuser, writedate, content) values(#{numseq}, 0, #{title}, #{writeuser}, sysdate, #{content})	
 	</insert>
 	
 	<select id="boardcontent" resultType="HashMap"> 
-			select board_num, ripple_num, title ,writeuser, writedate, content from p_board where board_num = #{board_num, jdbcType=NUMERIC} and ripple_num = 0
+			select board_num, ripple_num, title, writeuser, writedate, content from p_board where board_num = #{board_num, jdbcType=NUMERIC} and ripple_num = 0
 	</select>
 	
 	<insert id="ripplewrite">
 		<selectKey keyProperty="numseqq" resultType="int" order="BEFORE">
 			 select ripple_num.nextval as numseqq from DUAL
 		</selectKey>
-		insert into P_BOARD (board_num, ripple_num, title ,writeuser, writedate, content) values(#{board_num jdbcType=NUMERIC}, #{numseqq}, #{title}, #{writeuser}, sysdate, #{content})	
+		insert into P_BOARD (board_num, ripple_num, title, writeuser, writedate, content) values(#{board_num jdbcType=NUMERIC}, #{numseqq}, #{title}, #{writeuser}, sysdate, #{content})	
 	</insert>
 	
 	<select id="ripplelist" resultType="HashMap">
-		select * from P_BOARD where board_num = #{board_num} and ripple_num != 0
+		select board_num, ripple_num, title, writeuser, writedate, content from P_BOARD where board_num = #{board_num} and ripple_num != 0
 	</select>
 	
 	
