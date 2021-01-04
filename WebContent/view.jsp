@@ -76,7 +76,7 @@
 			<table class="table table-striped" style="border: 1px solid #dddddd;">
 			<%for (int i=0; i<ripplelist.size(); i++) { %>
 			  <tr>
-			    <td style="text-align: center;" ><%=ripplelist.get(i).get("WRITEUSER") %></td>
+			    <td style="text-align: center;" width="170px"><%=ripplelist.get(i).get("WRITEUSER") %></td>
 			    <td><%=ripplelist.get(i).get("CONTENT") %></td>
 			  </tr>
 			 <%} %>  
@@ -87,9 +87,9 @@
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd; margin-top: 20px">
 			  <tbody>
 				 <tr>
-				   <td style="width: 150px;"><input type="text" class="form-control" placeholder="댓글 작성자" name="writeuser" maxlength="25"></td>
+				   <td width="150px"><input type="text" class="form-control" placeholder="댓글 작성자" name="writeuser" maxlength="25"></td>
 				   <td><input type="text" class="form-control" placeholder="댓글 내용" name="content" maxlength="100"></td>
-				   <td style="width: 150px;"><input type="button" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
+				   <td width="150px"><input type="button" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
 				 </tr>
 			  </tbody>
 			</table>
