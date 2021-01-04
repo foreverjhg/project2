@@ -66,9 +66,6 @@
 						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성일시</th>
 					</tr>
-					
-					
-					
 				</thead>
 				<tbody>
 					<!-- 게시판 글 목록 -->
