@@ -26,19 +26,16 @@ public class writeActionService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		request.setCharacterEncoding("EUC-KR");
 		
 	
-		List<Map<String, String>> username = (List<Map<String, String>>) session.getAttribute("username");
-		
-		
-		
-		
+//		List<Map<String, String>> username = (List<Map<String, String>>) session.getAttribute("username");
+//		
 		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String writeuser = username.get(0).get("NAME");
+		String writeuser = request.getParameter("name");
 		
 		System.out.println(title+" "+content);
 		
@@ -59,7 +56,7 @@ public class writeActionService extends HttpServlet {
 		
 		if (cnt > 0) {
 			System.out.println("글작성 성공");
-			response.sendRedirect("bbs.jsp");
+			response.sendRedirect("bbsService");
 		}else {
 			System.out.println("글작성 실패");
 			response.sendRedirect("index.jsp");

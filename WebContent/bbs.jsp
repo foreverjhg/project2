@@ -76,7 +76,7 @@
 					
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %></th>
-						<th style="background-color: #eeeeee; text-align: center;"><%=boardlist.get(i).get("TITLE") %></th>
+						<th style="background-color: #eeeeee; text-align: center;"><a href = 'viewService?num=<%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %>'><%=boardlist.get(i).get("TITLE") %></a></th>
 						<th style="background-color: #eeeeee; text-align: center;"><%=boardlist.get(i).get("WRITEUSER") %></th>
 						<th style="background-color: #eeeeee; text-align: center;"><%=String.valueOf(boardlist.get(i).get("WRITEDATE")) %></th>
 					</tr>

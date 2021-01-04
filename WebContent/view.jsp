@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -9,7 +12,9 @@
 <link rel="stylesheet" href="css/custom.css">
 <title>JSP</title>
 <%
-  String name = (String)session.getAttribute("name");
+    String name = (String)session.getAttribute("name");
+	List<Map<String, String>> list = (List<Map<String, String>>) session.getAttribute("boardcontent");
+	List<Map<String, String>> ripplelist = (List<Map<String, String>>) session.getAttribute("ripplelist");
 %>
 </head>
 <body>
@@ -55,10 +60,10 @@
 				</thead>
 				<tbody>
 	             <tr>
-					<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" disabled="disabled"></td>
+					<td><input type="text" class="form-control" placeholder="글 제목" value = "<%=list.get(0).get("TITLE") %>" name="bbsTitle" maxlength="50" disabled="disabled"></td>
 				 </tr>
 				 <tr>
-					<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;" disabled="disabled"></textarea></td>
+					<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;" disabled="disabled"><%=list.get(0).get("CONTENT") %></textarea></td>
 				 </tr>
 				</tbody>
 			</table>
@@ -67,70 +72,48 @@
 			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=" class="btn btn-primary">삭제</a>
 			<hr style="border: 1px solid grey;">
 			<!-- 댓글 내용 표시 -->
+			<%if (ripplelist != null) {%>
 			<table class="table table-striped" style="border: 1px solid #dddddd;">
+			<%for (int i=0; i<ripplelist.size(); i++) { %>
 			  <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
+			    <td style="text-align: center;" ><%=ripplelist.get(i).get("WRITEUSER") %></td>
+			    <td><%=ripplelist.get(i).get("CONTENT") %></td>
 			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			  <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			  <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
-			   <tr>
-			    <td style="text-align: center;" >개구리</td>
-			    <td>이렇게 댓글 작성이 되요. 한번해보세요.... </td>
-			  </tr>
+			 <%} %>  
 			</table>
+			<%} %>
 			
+			<form  action="rippleService" method="post" name="form">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd; margin-top: 20px">
 			  <tbody>
 				 <tr>
-				   <td style="width: 150px;"><input type="text" class="form-control" placeholder="댓글 작성자" name="bbsWrite" maxlength="25"></td>
-				   <td><input type="text" class="form-control" placeholder="댓글 내용" name="bbsComment" maxlength="100"></td>
-				   <td style="width: 150px;"><a href="" class="btn btn-primary form-control">등록</a></td>
+				   <td style="width: 150px;"><input type="text" class="form-control" placeholder="댓글 작성자" name="writeuser" maxlength="25"></td>
+				   <td><input type="text" class="form-control" placeholder="댓글 내용" name="content" maxlength="100"></td>
+				   <td style="width: 150px;"><input type="button" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
 				 </tr>
 			  </tbody>
 			</table>
-			
+			<input type="hidden" name="board_num" value="<%=String.valueOf(list.get(0).get("BOARD_NUM")) %>">
+			<input type="hidden" name="title" value="<%=list.get(0).get("TITLE") %>">
+			</form>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+	function check() {
+		var form = document.form;
+		if(form.writeuser.value == ""){
+			alert("댓글 작성자를 입력하세요.");
+			form.writeuser.focus();
+			exit();
+		}else if(form.content.value == ""){
+			alert("댓글 내용을 입력하세요.");
+			form.content.focus();
+			exit();
+		}
+		form.submit();
+	}
+	</script>
 </body>
 </html>

@@ -24,8 +24,21 @@ public class BoardDAO {
 		 return sqlSession.selectList("Board.boardlist");		
 	}
 	
+	public List<Map<String, String>> boardcontent(String board_num) {
+		return sqlSession.selectList("Board.boardcontent", board_num);
+	}
+
+	public int ripplewrite(HashMap pHm) {
+		int cnt = sqlSession.insert("Board.ripplewrite", pHm);
+		
+		sqlSession.commit();
+		return cnt;
+	}
 	
-	
+	public List<Map<String, String>> ripplelist(String board_num) {
+		return sqlSession.selectList("Board.ripplelist", board_num);
+		
+	}
 
 	
 	

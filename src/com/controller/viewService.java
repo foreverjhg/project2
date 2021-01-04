@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,28 +14,37 @@ import javax.servlet.http.HttpSession;
 
 import com.model.BoardDAO;
 
-
 @WebServlet("/viewService")
 public class viewService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.setCharacterEncoding("EUC-KR");
+		response.setCharacterEncoding("EUC-KR");
 		HttpSession session = request.getSession();
+
+		String board_num = request.getParameter("num");
+
+		System.out.println(board_num);
+
 		BoardDAO dao = new BoardDAO();
-		System.out.println("目乖目乖");
-		System.out.println("目乖目乖");
-		List<Map<String, String>> boardcontent = dao.boardlist();
-		System.out.println("目乖目乖");
-		if (boardcontent != null) {
-			System.out.println("焊靛能刨明 己傍");
-			session.setAttribute("boardcontent", boardcontent);
-			response.sendRedirect("view.jsp");
-		}else {
-			System.out.println("焊靛能镁明 角菩");
-		}
+
+		List<Map<String, String>> list = dao.boardcontent(board_num);
 		
+		System.out.println(list.get(0).get("CONTENT"));
+
+		
+		if (list != null) {
+			session.removeAttribute("ripplelist");
+			session.removeAttribute("boardcontent");
+			session.setAttribute("boardcontent", list);
+			response.sendRedirect("view.jsp");
+		} else {
+			response.sendRedirect("index.jsp");
+		}
+		 
 	}
 
 }
