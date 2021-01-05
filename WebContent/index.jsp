@@ -11,6 +11,16 @@
 <%
   String name = (String)session.getAttribute("name");
 %>
+
+<style>
+	.collapse navbar-collapse { width : 1200px; margin:0 auto;}
+	.nav navbar-nav {float: text-align:center;}
+	.nav navbar-nav li {display:inline-block; text-align:center}]
+
+
+</style>
+
+
 </head>
 <body>
 	<!-- 내비게이션 바 -->
@@ -26,10 +36,12 @@
 			<a class="navbar-brand" href="index.jsp">JSP</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.jsp">메인</a></li>
 				<li><a href="bbsService">게시판</a></li>
 			</ul>
+		
 			<!-- 로그인 전 화면 -->
 			<%if(name == null){ %>
 			<ul class="nav navbar-nav navbar-right">

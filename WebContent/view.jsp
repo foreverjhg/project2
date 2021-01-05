@@ -89,7 +89,7 @@
 				 <tr>
 				   <td width="150px"><input type="text" class="form-control" placeholder="댓글 작성자" name="writeuser" maxlength="25"></td>
 				   <td><input type="text" class="form-control" placeholder="댓글 내용" name="content" maxlength="100"></td>
-				   <td width="150px"><input type="button" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
+				   <td width="150px"><input type="button" id = "test" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
 				 </tr>
 			  </tbody>
 			</table>
@@ -101,19 +101,40 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript">
-	function check() {
-		var form = document.form;
-		if(form.writeuser.value == ""){
-			alert("댓글 작성자를 입력하세요.");
-			form.writeuser.focus();
-			exit();
-		}else if(form.content.value == ""){
-			alert("댓글 내용을 입력하세요.");
-			form.content.focus();
-			exit();
+		function check() {
+			var form = document.form;
+
+			if (form.writeuser.value == "") {
+				alert("댓글 작성자를 입력하세요.");
+				form.writeuser.focus();
+				exit();
+			} else if (form.content.value == "") {
+				alert("댓글 내용을 입력하세요.");
+				form.content.focus();
+				exit();
+			}
+			result();
 		}
-		form.submit();
-	}
+
+		function result() {
+			var replySection = document.form.content;
+
+			score(replySection.value, function(probability) {
+				var re = "";
+				if(parseFloat(probability).toFixed(1) > 0.5){
+					re = confirm("성희롱 관련된 문장이 보입니다.\n등록 할까요?");
+				}
+				
+				if(re){
+					document.form.submit();
+				}else{
+					replySection.value = "";
+				}
+
+			});
+		}
+
 	</script>
+	<script src="js/score.js"></script>
 </body>
 </html>

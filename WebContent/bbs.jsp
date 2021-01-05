@@ -71,7 +71,7 @@
 					<!-- 게시판 글 목록 -->
 					<% for (int i=0; i<boardlist.size(); i++) { %>
 					<tr>
-						<td><%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %></td>
+						<td><%=boardlist.size()-i %></td>
 						<td><a href = 'viewService?num=<%=String.valueOf(boardlist.get(i).get("BOARD_NUM")) %>'><%=boardlist.get(i).get("TITLE") %></a></td>
 						<td><%=boardlist.get(i).get("WRITEUSER") %></td>
 						<td><%=String.valueOf(boardlist.get(i).get("WRITEDATE")) %></td>
