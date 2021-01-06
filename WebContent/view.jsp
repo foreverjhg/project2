@@ -188,7 +188,7 @@
 		function result() {
 			var replySection = document.form.content; 
 
-			score(replySection.value, function(probability) {
+			 score(replySection.value, function(probability) {
 
 				if(parseFloat(probability).toFixed(1) > 0.5){
 					const modal = document.querySelector(".modal");
