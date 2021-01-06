@@ -7,9 +7,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta name="viewport" content="width=device-width", initial-scale="1">
+<meta name="viewport" content="width=device-width, initial=scale=1.0">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
+<style type="text/css">
+     .modal{ 
+         position: fixed;
+         top: 0; left: 0;
+         width: 100%; height: 100%;
+         display: flex;
+         justify-content: center;
+         align-items : center;
+         
+      }
+      
+      .md_overlay {
+         background-color: rgba(0, 0, 0, 0.6);
+         width: 100%; height: 100%;
+         position: absolute;
+      
+      }
+
+      .md_content {
+         width: 40%;
+         position: relative;
+         padding: 50px 100px;
+         background-color: #F05656;
+         text-align: center;
+         border-radius: 6px;
+         box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+      }
+      
+      
+      .md_con {
+      	 width: 40%;
+         position: absolute;
+         padding: 31px 31px;
+         background-color: white;
+         text-align: center;
+         border-radius: 6px;
+         margin-top: 390px;
+         box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+      }
+      
+      .hidden {
+         display: none;
+      }
+      
+      .modal_text { padding: 16px; }
+</style>
 <title>JSP</title>
 <%
     String name = (String)session.getAttribute("name");
@@ -90,6 +136,7 @@
 				   <td width="150px"><input type="text" class="form-control" placeholder="댓글 작성자" name="writeuser" maxlength="25"></td>
 				   <td><input type="text" class="form-control" placeholder="댓글 내용" name="content" maxlength="100"></td>
 				   <td width="150px"><input type="button" id = "test" class="btn btn-primary form-control" value="등록" onclick="check()"></td>
+				   
 				 </tr>
 			  </tbody>
 			</table>
@@ -98,12 +145,33 @@
 			</form>
 		</div>
 	</div>
+
+	 <div class="modal hidden">
+     <div class="md_overlay"></div>
+	 <div class="md_content">
+         <img src="images/alarm.png" width=50% height="150px">
+         <div class="modal_text">
+            <h2>성희롱 댓글이 감지되었습니다.</h2>
+            <h2>계속 등록 하시겠습니까?</h2> 
+         </div>
+      </div>
+      <div class="md_con">
+         <div >
+         <input id="submits" type="button" class="btn btn-danger" value="예">  <input id="cancels" type="button" class="btn btn-success" value="아니오">
+         </div>
+      
+      
+      </div>
+      
+      
+   </div>
+	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript">
 		function check() {
 			var form = document.form;
-
+			
 			if (form.writeuser.value == "") {
 				alert("댓글 작성자를 입력하세요.");
 				form.writeuser.focus();
@@ -113,6 +181,7 @@
 				form.content.focus();
 				exit();
 			}
+			
 			result();
 		}
 
@@ -120,21 +189,42 @@
 			var replySection = document.form.content;
 
 			score(replySection.value, function(probability) {
-				var re = "";
+
 				if(parseFloat(probability).toFixed(1) > 0.5){
-					re = confirm("성희롱 관련된 문장이 보입니다.\n등록 할까요?");
+					const modal = document.querySelector(".modal");
+					modal.classList.remove("hidden");
+					
+				    const overlay = modal.querySelector(".md_overlay");
+				    const closeButton = modal.querySelector("#cancels");
+				    const submitButton = modal.querySelector("#submits")
+				      
+				    //동작함수
+				    const closeModal = () => {
+				       modal.classList.add("hidden");
+				       replySection.value = "";
+				    }
+				      
+				    const submitModal = () => {
+				       modal.classList.add("hidden")
+				       document.form.submit();
+				    }
+				    
+				    //클릭 이벤트
+				    closeButton.addEventListener("click", closeModal);
+				    submitButton.addEventListener("click", submitModal) 
+				}else{
+					document.form.submit();
 				}
 				
-				if(re){
-					document.form.submit();
-				}else{
-					replySection.value = "";
-				}
-
+				
+				
 			});
 		}
 
+		 //필요한 엘리먼트들을 선택한다.
+	      
 	</script>
 	<script src="js/score.js"></script>
+	
 </body>
 </html>
