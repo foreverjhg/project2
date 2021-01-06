@@ -186,7 +186,7 @@
 		}
 
 		function result() {
-			var replySection = document.form.content;
+			var replySection = document.form.content; 
 
 			score(replySection.value, function(probability) {
 
