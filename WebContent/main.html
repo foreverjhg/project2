@@ -85,15 +85,16 @@
                 <form name="addcontent" action="#">
                   <div class="form-group d-flex">
                    
-                    <select>
+                    <select  name = "page" id = "tempCategory">
                 		<option>-선택-</option>
-                		<option>사이트1</option>
-                		<option>사이트2</option>
-                		<option>사이트3</option>
+                		<option value = "">사이트1</option>
+			            <option value = "fm.korea">펨코</option>
+			            <option value = "https://gall.dcinside.com/">디씨</option>
+
                 	</select>
                 	&nbsp;&nbsp;
-                    <input type="text" name="contents" class="form-control" placeholder="URL를 입력하세요">
-                    <input type="button" class="btn btn-primary text-white px-4" value="검색" onclick="progress()">
+                    <input type="text" id = "tempURL" name="contents" class="form-control" placeholder="URL를 입력하세요">
+                    <input type="button"  class="btn btn-primary text-white px-4" value="검색" onclick="exampleFunc2();">
                   </div>
                 </form>
               </div>
@@ -257,14 +258,34 @@
 	<script>
 		function progress() {
 			var form = document.addcontent;
+			
 			if (form.contents.value != "") {
 				var dialog = document.getElementById("progressCircleDialog");
 				dialog.showModal();
+				
 				setTimeout(function() {
 					dialog.close();
 				}, 5000);
 			}
 		}
+		
+		function exampleFunc2() {
+			
+			progress();
+			var category = document.getElementById("tempCategory").value;
+			
+			var url = document.getElementById("tempURL").value;
+			
+			
+			check(category, url, function (returnCode) {
+				if (returnCode == 1) {
+					console.log("성공");
+				}else {
+					console.log("실패");
+				}
+			}) 
+		  }
 	</script>
+	<script src="js/check.js"></script>
 </body>
 </html>
