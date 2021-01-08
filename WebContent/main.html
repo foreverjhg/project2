@@ -92,9 +92,9 @@
                    
                     <select  name = "page" id = "tempCategory">
                 		<option>-선택-</option>
-                		<option value = "">사이트1</option>
-			            <option value = "fm.korea">펨코</option>
-			            <option value = "https://gall.dcinside.com/">디씨</option>
+                		<option value = "todayHumor">오늘의유머</option>
+			            <option value = "fmKorea">펨코</option>
+			            <option value = "dcinside">디씨</option>
 
                 	</select>
                 	&nbsp;&nbsp;
@@ -136,7 +136,7 @@
 	<script src="./js/jquery-latest.js">
 	</script>
 	<script>
-	/* 	function progress() {
+	 	function progress() {
 			var form = document.addcontent;
 			
 			if (form.contents.value != "") {
@@ -145,28 +145,30 @@
 				
 				setTimeout(function() {
 					dialog.close();
-				}, 5000);
+				}, 50000);
 			}
 		}
-		 */
+		 
 		function exampleFunc2() {
 			
 			
-			/* progress(); */
+			 progress(); 
 			var category = document.getElementById("tempCategory").value;
+			
 			
 			var url = document.getElementById("tempURL").value;
 			
 			
-			check(category, url, function (returnCode) {
+			 check(category, url, function (returnCode) {
 			
-				location.href="graph.jsp"
-				/* 	if (returnCode == 1) {
+			 	if (returnCode == 1) {
 					console.log("성공");
+					location.href="graphService?category="+category
+					
 				}else {
 					console.log("실패");
-				} */
-			}) 
+				} 
+			})  
 			
 		  }
 	</script>

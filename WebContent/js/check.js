@@ -2,7 +2,7 @@
         console.log("category: " + category);
         console.log("url: " + url);
         
-        var requestURL = 'http://119.200.190.100:5000/check';
+        var requestURL = 'http://localhost:5000/check';
         var request = new XMLHttpRequest();
         
         var param = 'category='+category+"&url="+url;

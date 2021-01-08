@@ -73,4 +73,5 @@
           </div>
         </div>
       </header>
+      <script>console.log(category)</script>
     </body>
