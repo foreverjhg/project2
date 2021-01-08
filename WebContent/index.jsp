@@ -12,7 +12,7 @@
   String name = (String)session.getAttribute("name");
 %>
 
-<style>
+<style> 
 	.collapse navbar-collapse { width : 1200px; margin:0 auto;}
 	.nav navbar-nav {float: text-align:center;}
 	.nav navbar-nav li {display:inline-block; text-align:center}]
