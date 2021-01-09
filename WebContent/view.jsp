@@ -29,7 +29,7 @@
       }
 
       .md_content {
-         width: 40%;
+         width: 50%;
          position: relative;
          padding: 50px 100px;
          background-color: #F05656;
@@ -40,13 +40,13 @@
       
       
       .md_con {
-      	 width: 40%;
+      	 width: 50%;
          position: absolute;
          padding: 31px 31px;
          background-color: white;
          text-align: center;
          border-radius: 6px;
-         margin-top: 390px;
+         margin-top: 400px;
          box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
       }
       
@@ -62,8 +62,11 @@
 	List<Map<String, String>> list = (List<Map<String, String>>) session.getAttribute("boardcontent");
 	List<Map<String, String>> ripplelist = (List<Map<String, String>>) session.getAttribute("ripplelist");
 %>
+
 </head>
 <body>
+	
+    <% String score = String.valueOf(request.getParameter("score"));%>
 	<!-- 내비게이션 바 -->
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -152,6 +155,7 @@
          <img src="images/alarm.png" width=50% height="150px">
          <div class="modal_text">
             <h2>성희롱 댓글이 감지되었습니다.</h2>
+            <div id="h3"></div>
             <h2>계속 등록 하시겠습니까?</h2> 
          </div>
       </div>
@@ -185,12 +189,18 @@
 			result();
 		}
 
+		
+		
+		
 		function result() {
 			var replySection = document.form.content; 
-
+				
 			 score(replySection.value, function(probability) {
+				var h3 = document.getElementById("h3");
+				h3.innerHTML ="<h3>("+parseFloat(probability).toFixed(1)*100+"%)</h3>";
 
 				if(parseFloat(probability).toFixed(1) > 0.5){
+					
 					const modal = document.querySelector(".modal");
 					modal.classList.remove("hidden");
 					

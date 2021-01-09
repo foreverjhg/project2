@@ -1,8 +1,14 @@
 package com.controller;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -45,34 +51,40 @@ public class graphService extends HttpServlet {
 		List<Map<String, String>>list = dao.selectScore(pHm);
 		
 		String result = createCSV(list);
+		System.out.println(result);
+		
 		
 		List<Map<String, String>>listmean = dao.selectmean(pHm);
+	
+		String sitename = listmean.get(0).get("SITE_NAME");
+		String mean = String.valueOf(listmean.get(0).get("MAX_MEAN"));
 		
-		System.out.println(listmean.size());
+		if (listmean.size()>0) {
+			response.sendRedirect("graph.jsp?category="+sitename+"&"+"mean="+mean);
+		}
+		
 	}
 	
 	public String createCSV(List<Map<String, String>>list) {
 	    try {
 	        String filename = "C:\\Users\\dk\\Desktop\\project2\\project2\\WebContent\\csv\\aster_data.csv";
-	        FileWriter fw = new FileWriter(filename);
-	        fw.append("id");fw.append(',');fw.append("order");fw.append(',');fw.append("score");fw.append(',');fw.append("weight");fw.append(',');fw.append("color");fw.append(',');fw.append("label");fw.append('\n');
-	        fw.append("A");fw.append(',');fw.append("1");fw.append(',');fw.append(String.valueOf(list.get(0).get("REPLY_SCORE")));fw.append(',');fw.append("0.5");fw.append(',');fw.append("#9E0041");fw.append(',');fw.append(list.get(0).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("B");fw.append(',');fw.append("2");fw.append(',');fw.append(String.valueOf(list.get(1).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#E1514B");fw.append(',');fw.append(list.get(1).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("C");fw.append(',');fw.append("3");fw.append(',');fw.append(String.valueOf(list.get(2).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#F47245");fw.append(',');fw.append(list.get(2).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("D");fw.append(',');fw.append("4");fw.append(',');fw.append(String.valueOf(list.get(3).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#FB9F59");fw.append(',');fw.append(list.get(3).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("F");fw.append(',');fw.append("5");fw.append(',');fw.append(String.valueOf(list.get(4).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#FEC574");fw.append(',');fw.append(list.get(4).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("G");fw.append(',');fw.append("6");fw.append(',');fw.append(String.valueOf(list.get(5).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#FAE38C");fw.append(',');fw.append(list.get(5).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("H");fw.append(',');fw.append("7");fw.append(',');fw.append(String.valueOf(list.get(6).get("REPLY_SCORE")));fw.append(',');fw.append("0.5");fw.append(',');fw.append("#EAF195");fw.append(',');fw.append(list.get(6).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("I");fw.append(',');fw.append("8");fw.append(',');fw.append(String.valueOf(list.get(7).get("REPLY_SCORE")));fw.append(',');fw.append("0.5");fw.append(',');fw.append("#9CD6A4");fw.append(',');fw.append(list.get(7).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("J");fw.append(',');fw.append("9");fw.append(',');fw.append(String.valueOf(list.get(8).get("REPLY_SCORE")));fw.append(',');fw.append("1");fw.append(',');fw.append("#4D9DB4");fw.append(',');fw.append(list.get(8).get("SITE_CONTENTS"));fw.append('\n');
-	        fw.append("K");fw.append(',');fw.append("10");fw.append(',');fw.append(String.valueOf(list.get(9).get("REPLY_SCORE")));fw.append(',');fw.append("0.5");fw.append(',');fw.append("#4776B4");fw.append(',');fw.append(list.get(9).get("SITE_CONTENTS"));fw.append('\n');
 	        
+	        File tarf = new File(filename);
+	        tarf.createNewFile();
+	        BufferedWriter outwriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tarf),"UTF8"));
+	   
+	        String str = "id,order,score,weight,color,label\n";
 	        
+	        String[] colors = {"#9E0041","#E1514B","#F47245","#FB9F59","#FEC574","#FAE38C","#EAF195","#9CD6A4","#4D9DB4","#4776B4"};
+	        String[] weights = {"0.5","1","1","1","1","1","0.5","0.5","1","0.5"};
+	        String[] ids = {"A","B","C","D","E","F","G","H","I","J"};
 	        
+	        for(int i=0; i<list.size(); i++) {
+	        	  str += ids[i]+","+(i+1)+","+String.valueOf(list.get(i).get("REPLY_SCORE"))+","+weights[i]+","+colors[i]+","+list.get(i).get("SITE_CONTENTS")+"\n";
+	        }
+	        outwriter.write(str);
+	        outwriter.close();
 	        
-	        
-	        fw.close();
-
 	        return "Csv file Successfully created";
 	    } catch(Exception e) {
 	        return e.toString();
