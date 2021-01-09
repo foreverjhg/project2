@@ -16,12 +16,12 @@
 	</select>
 	
 	<select id="graphmean" resultType="HashMap">
-	select site_name, max_mean from(
-	select site_name, TRUNC(max(site_mean),2)*100 as max_mean from site_scoremean where site_name like '%'||#{category}||'%'
-	and to_char(meanscore_date,'YYYY/MM/DD') = to_date(#{date},'YYYY/MM/DD')
+	<![CDATA[select site_name, TRUNC(max_mean,2)*100 as max_mean from(
+	select site_name, max(site_mean) as max_mean from site_scoremean where site_name LIKE '%'||#{category}||'%'
+	and TO_CHAR(meanscore_date,'YYYY/MM/DD') = TO_DATE(#{date},'YYYY/MM/DD')
 	group by site_name
 	order by max_mean DESC)
-	where ROWNUM <![CDATA[ <= ]]> 1;
+	where ROWNUM  <=  1 ]]>
 	
 	</select>
 </mapper>
