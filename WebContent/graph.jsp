@@ -4,35 +4,6 @@
 <html>
 <head>
   <script src="./js/jquery-latest.js"></script>
-  <style>
-  select { width: 150px; /* 원하는 너비설정 */ 
- 		 padding: .8em .5em; /* 여백으로 높이 설정 */
-  	 	 font-family: inherit; /* 폰트 상속 */ 
-  		 border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */ 
-    	  }
-
-	/* 로딩스타일 */
- #progressCircleDialog  {
-	border: 16px solid #f3f3f3;
-	border-top: 16px solid #3498db;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	animation: spin 2s linear infinite;
-	position: fixed;
-	top: 50%;
-	margin-left: 960px;  
-  }
-  
-  @keyframes spin {
-	0% {
-		 transform: translate(-50%, -50%) rotate(0deg);
-	   }
-  100% {
-		 transform: translate(-50%, -50%) rotate(360deg);
-	   }
-	}
-</style>
   
     <title>성희롱 감시 시스템</title>
     <meta charset="utf-8">
@@ -49,12 +20,6 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  <div>
-      <!-- dialog 태그를 border-radius 속성을 이용해서 원형으로 만들고 gif 이미지도 동일하게 원형으로 만든다 -->
-      <dialog id="progressCircleDialog">
-     	  <div class="loader"></div> 
-      </dialog>
-   </div>
 
    <div class="site-wrap" id="home-section">
      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
@@ -73,5 +38,6 @@
           </div>
         </div>
       </header>
+      </div>
       <script>console.log(category)</script>
     </body>
