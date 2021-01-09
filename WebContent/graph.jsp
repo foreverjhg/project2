@@ -54,11 +54,35 @@
       
       <div class="alert alert-primary" role="alert">
       		<font size="5em" color="black"><%=category %>의 청정도</font>
-      			 
-	  </div>
+      	</div>	 
+	  
+	  
+	  <div>
+      <%int mean_int = Integer.parseInt(mean);
+      int mean_ten = mean_int/10;
+      int mean_one =mean_int%10;
+      %>
+      
+      <%for (int i=0; i<10; i++)  { %>
+      <%if(mean_ten==i) {%>
+       <img src = "./images/<%=i%>.jpg">
+      
+      <%} %>
+       <%} %>
+      
+      <%for (int i=0; i<10; i++)  { %>
+      <%if(mean_one==i) {%>
+        <img src = "./images/<%=i %>.jpg">
+      
+      <%} %>
+       <%} %>
+      
+      <img src ="./images/persent.png">
+      
+      </div>
       
       
-      <font size="50px" color="black"><%=mean %>%</font>
+     
       
       <br><br>
       
