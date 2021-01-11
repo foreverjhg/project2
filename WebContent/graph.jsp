@@ -53,41 +53,35 @@
       </div>
       
       <div class="alert alert-primary" role="alert">
-      		<font size="5em" color="black"><%=category %>ÀÇ ¿À¿°µµ</font>
-      	</div>	 
-	  
-	  
+      	<font size="5em" color="black"><%=category %>ÀÇ ¿À¿°µµ</font>
+      </div>	 
 	  <div>
-      <%int mean_int = Integer.parseInt(mean);
-      int mean_ten = mean_int/10;
-      int mean_one =mean_int%10;
+      <%
+	      int mean_int = Integer.parseInt(mean);
+	      int mean_ten = mean_int/10;
+	      int mean_one =mean_int%10;
       %>
       
-      <%for (int i=0; i<10; i++)  { %>
-      <%if(mean_ten==i) {%>
-       <img src = "./images/<%=i%>.jpg">
-      
-      <%} %>
-       <%} %>
-      
-      <%for (int i=0; i<10; i++)  { %>
-      <%if(mean_one==i) {%>
-        <img src = "./images/<%=i %>.jpg">
-      
-      <%} %>
-       <%} %>
-      
+      <%
+        for (int i=0; i<10; i++)  { 
+         if(mean_ten==i) {
+      %>
+       <img src = "./images/<%=i%>.png">
+      <%
+         } 
+       } 
+         for (int i=0; i<10; i++)  {
+           if(mean_one==i) {
+       %>
+        <img src = "./images/<%=i %>.png">
+       <%
+      	} 
+       } 
+       %>
       <img src ="./images/persent.png">
-      
       </div>
-      
-      
-     
-      
       <br><br>
-      
-   
       <div>
-			  <script src="./js/draw.js" charset="utf-8"></script>
+		<script src="./js/draw.js" charset="utf-8"></script>
       </div>
     </body>

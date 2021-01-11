@@ -80,7 +80,7 @@ public class graphService extends HttpServlet {
 	        String str = "id,order,score,weight,color,label\n";
 	        
 	        String[] colors = {"#9E0041","#E1514B","#F47245","#FB9F59","#FEC574","#FAE38C","#EAF195","#9CD6A4","#4D9DB4","#4776B4"};
-	        String[] weights = {"0.5","1","1","1","1","1","0.5","0.5","1","0.5"};
+	        String[] weights = {"1","1","1","1","1","0.5","0.5","0.5","0.5","0.5"};
 	        String[] ids = {"A","B","C","D","E","F","G","H","I","J"};
 	        
 	        for(int i=0; i<list.size(); i++) {
