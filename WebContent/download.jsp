@@ -43,6 +43,7 @@
 								class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
 								<li><a href="main.html" class="nav-link">HOME</a></li>
 								<li><a href="download.jsp" class="nav-link">DOWNLOAD</a></li>
+								<li><a href="bbsService" class="nav-link">BOARD</a></li>
 							</ul>
 						</nav>
 					</div>
