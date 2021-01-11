@@ -67,9 +67,13 @@ public class graphService extends HttpServlet {
 	
 	public String createCSV(List<Map<String, String>>list) {
 	    try {
-	        String filename = "C:\\Users\\dk\\Desktop\\project2\\project2\\WebContent\\csv\\aster_data.csv";
+	    	
+	    	String filepath = getServletContext().getRealPath("") + File.separator + "csv\\";
+	        String filename = "aster_data.csv";
 	        
-	        File tarf = new File(filename);
+	        File tarf = new File(filepath + filename);
+	        System.out.println(filepath + filename);
+	        
 	        tarf.createNewFile();
 	        BufferedWriter outwriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tarf),"UTF8"));
 	   

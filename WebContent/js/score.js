@@ -2,7 +2,7 @@ function score(text, callback) {
 	var header = document.querySelector('header');
 	var section = document.querySelector('section');
 
-	var requestURL = 'http://127.0.0.1:5000/score';
+	var requestURL = 'http://211.223.136.165:5000/score';
 	var request = new XMLHttpRequest();
 
 	var param = 'text=' + text;

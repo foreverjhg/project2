@@ -53,7 +53,7 @@
       </div>
       
       <div class="alert alert-primary" role="alert">
-      		<font size="5em" color="black"><%=category %>의 청정도</font>
+      		<font size="5em" color="black"><%=category %>의 오염도</font>
       	</div>	 
 	  
 	  

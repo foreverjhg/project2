@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -31,7 +32,7 @@ public class LoginService extends HttpServlet {
 		pHm.put("pw", pw.toLowerCase());
 		
 		String name = dao.login(pHm);
-		
+
 		if(name != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("name", name);
